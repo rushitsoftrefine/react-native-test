@@ -1,0 +1,114 @@
+[
+  {
+    "login": {
+      "uuid": "536370ae-6835-11ea-bc55-0242ac130003"
+    },
+    "name": {
+      "title": "",
+      "first": "Usman",
+      "last": "Marsden"
+    },
+    "email": "Usman.Marsden@gmail.com",
+    "phone": "+1-202-555-0127",
+    "cell": "+1-202-555-0127",
+    "picture": {
+      "medium": "https://loremflickr.com/100/100"
+    }
+  },
+  {
+    "login": {
+      "uuid": "536372b6-6835-11ea-bc55-0242ac130003"
+    },
+    "name": {
+      "title": "",
+      "first": "Cavan",
+      "last": "Finch"
+    },
+    "email": "Cavan.Finch@gmail.com",
+    "phone": "+1-202-555-0114",
+    "cell": "+1-202-555-0114",
+    "picture": {
+      "medium": "https://loremflickr.com/100/100"
+    }
+  },
+  {
+    "login": {
+      "uuid": "536373b0-6835-11ea-bc55-0242ac130003"
+    },
+    "name": {
+      "title": "",
+      "first": "Wade",
+      "last": "Werner"
+    },
+    "email": "Wade.Werner@gmail.com",
+    "phone": "+1-202-555-0185",
+    "cell": "+1-202-555-0185",
+    "picture": {
+      "medium": "https://loremflickr.com/100/100"
+    }
+  },
+  {
+    "login": {
+      "uuid": "53637482-6835-11ea-bc55-0242ac130003"
+    },
+    "name": {
+      "title": "",
+      "first": "Farhana",
+      "last": "Iles"
+    },
+    "email": "Farhana.Iles@gmail.com",
+    "phone": "+1-202-555-0180",
+    "cell": "+1-202-555-0180",
+    "picture": {
+      "medium": "https://loremflickr.com/100/100"
+    }
+  },
+  {
+    "login": {
+      "uuid": "536377ac-6835-11ea-bc55-0242ac130003"
+    },
+    "name": {
+      "title": "",
+      "first": "Iolo",
+      "last": "Mcmanus"
+    },
+    "email": "Iolo.Mcmanus@gmail.com",
+    "phone": "+1-202-555-0152",
+    "cell": "+1-202-555-0152",
+    "picture": {
+      "medium": "https://loremflickr.com/100/100"
+    }
+  },
+  {
+    "login": {
+      "uuid": "536378b0-6835-11ea-bc55-0242ac130003"
+    },
+    "name": {
+      "title": "",
+      "first": "Ephraim",
+      "last": "Reeves"
+    },
+    "email": "Ephraim.Reeves@gmail.com",
+    "phone": "+1-202-555-0177",
+    "cell": "+1-202-555-0177",
+    "picture": {
+      "medium": "https://loremflickr.com/100/100"
+    }
+  },
+  {
+    "login": {
+      "uuid": "53637978-6835-11ea-bc55-0242ac130003"
+    },
+    "name": {
+      "title": "",
+      "first": "Blake",
+      "last": "Enriquez"
+    },
+    "email": "Blake.Enriquez@gmail.com",
+    "phone": "+1-202-555-0140",
+    "cell": "+1-202-555-0140",
+    "picture": {
+      "medium": "https://loremflickr.com/100/100"
+    }
+  }
+]

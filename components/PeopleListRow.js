@@ -15,7 +15,7 @@ const PeopleListRow = (data) => {
   return (
     <TouchableOpacity>
       <View style={s.root}>
-        <Text children={`${data.name}`} />
+        <Text children={`${data.name.first}`} />{/* Fix PeopleListRow to display names correctly.  */}
       </View>
     </TouchableOpacity>
   );

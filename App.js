@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, TextInput, SectionList, SafeAreaView } from 'react-native';
 import PeopleListRow from './components/PeopleListRow';
+import usersData from './components/users.json';
 
 const s = StyleSheet.create({
   root: {
@@ -27,9 +28,10 @@ export default function App() {
   const [people, setPeople] = useState([]);
 
   useEffect(() => {
+    console.log("DATA: " + usersData)
     const fetchUsers = async () => {
-      const { results } = await fetch('https://randomuser.me/api/?results=100').then((res) => res.json());
-      setPeople(results.map((user) => ({
+      //const { results } = await fetch('https://randomuser.me/api/?results=100').then((res) => res.json());
+      setPeople(usersData.map((user) => ({
         title: '',
         data: [user],
       })));
