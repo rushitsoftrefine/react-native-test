@@ -38,48 +38,55 @@ const s = StyleSheet.create({
     marginHorizontal: 10,
     color: '#fff',
     fontWeight: 'bold',
-  },
-  rootItem: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    padding: 10,
-    paddingHorizontal: 10,
-    marginHorizontal: 10,
-    borderBottomColor: '#000',
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
-  userImage: {
-    width: 40,
-    height: 40,
-    marginLeft: 8,
-    marginRight: 16,
-    marginTop: 8,
-    marginBottom: 8,
-  },
+  }
 });
 
 export default function App() {
   const [search, setSearch] = useState('');
   const [people, setPeople] = useState([]);
-  const [selectItem, setSelectItem] = useState([]);
   
   useEffect(() => {
     const fetchUsers = async () => {
       console.log(data);
       //const { results } = await fetch('./jsonfile/users.json').then((res) => res.json());
-      data.sort(function(a, b) {
-        return a.name.last.localeCompare(b.name.last);
-      });
-      setPeople(
-        data.map(user => ({
-          title: user.name.last.charAt(0),
-          data: [user],
-        }))
-      );
+      getUserData(data)
+         
     };
     fetchUsers();
   }, [setPeople]);
 
+  function getUserData(data){
+    data.sort(function(a, b) {
+      return a.name.last.localeCompare(b.name.last);
+    });
+
+    let users = [];
+    for (let item of data) {
+      if (!checkTitle(users, item.name.last.charAt(0))) {
+        let obj = {
+          title: item.name.last.charAt(0),
+          data: [item],
+        };
+        users.push(obj);
+      } else {
+        let obj = {
+          title: '',
+          data: [item],
+        };
+        users.push(obj);
+      }
+    }
+    setPeople(users); 
+  }
+
+  function checkTitle(arr, data) {
+    for (let item of arr) {
+      if (item.title == data) {
+        return true;
+      }
+    }
+  }
+  
   return (
     <SafeAreaView style={s.root}>
       <View style={s.container}>
@@ -95,12 +102,8 @@ export default function App() {
               return searchData.indexOf(textData) > -1;
             });
 
-            setPeople(
-              newData.map(user => ({
-                title: user.name.last.charAt(0),
-                data: [user],
-              }))
-            );
+            getUserData(newData)
+
             setSearch(e.target.value);
           }}
           value={search}
@@ -110,9 +113,17 @@ export default function App() {
           stickySectionHeadersEnabled={true}
           renderItem={({item}) => <PeopleListRow {...item} />}
           /* Fix SectionList's headers. People dictionary needs to be wrapped by the first character of their last name. */
-          renderSectionHeader={({section}) => (
-            <Text style={s.SectionHeader}> {section.title} </Text>
-          )}
+          renderSectionHeader={({section}) => {
+            if (section.title !== '') {
+              return (
+                <View>
+                  <Text style={s.SectionHeader}> {section.title}</Text>
+                </View>
+              );
+            } else {
+              return null;
+            }
+          }}
           keyExtractor={(item, index) => item.login.uuid}
         />
       </View>
