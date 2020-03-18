@@ -1,0 +1,60 @@
+.App {
+    margin: 1rem auto;
+    max-width: 1000px;
+    padding: 1rem;
+  }
+  
+  .show {
+    display: block;
+  }
+  
+  .hide {
+    display: none;
+  }
+  
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0000003a;
+    transition: opacity 0.2s ease;
+  }
+
+  .modalContent{
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  .modal {
+    width: 70%;
+    height: auto;
+    position: fixed;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 2px;
+    transform: translateY(100%);
+    transition: transform 0.2s ease;
+    box-shadow: 0 2px 8px 3px;
+    font-family: Helvetica, Arial, sans-serif;
+    left: 40px;
+    bottom: 528px;
+  }
+  
+  .modal button {
+    position: absolute;
+    right: -1rem;
+    top: -1rem;
+    width: 2rem;
+    height: 2rem;
+    padding: 0.5rem;
+    margin: 0 auto;
+    border-radius: 50%;
+    box-shadow: 1px 1px 1px #0000003a;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.562);
+  }

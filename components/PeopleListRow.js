@@ -1,5 +1,6 @@
-import React from 'react';
-import { Modal, View, Image, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
+import React, {useState} from 'react';
+import { View, Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import Modal from './userDetailModel';
 
 const s = StyleSheet.create({
   root: {
@@ -20,21 +21,27 @@ const s = StyleSheet.create({
     marginBottom: 8,
   },
 });
- 
-const showAlert = () => {
-  Alert.alert(
-    'You need to...'
-  )
-}
 
 const PeopleListRow = data => {
+  const [selectItem, setSelectItem] = useState([]);
+
+  const [show, setShow] = useState(false);
+  const openModal = () => setShow(false);
+  const closeModal = () => setShow(false);
+
   return (
-    <TouchableOpacity activeOpacity={0} onPress={showAlert} >
-      <View style={s.root}>
-        <Image source={{ uri: data.picture.medium }} style={s.userImage} />{/* Extend PeopleListRow to display user images. */}
-        <Text children={`${data.name.first + ' ' + data.name.last}`} />{/* Fix PeopleListRow to display names correctly. */}
-      </View>
-    </TouchableOpacity>
+    <View>
+      <TouchableOpacity activeOpacity={1} onPress={() => { setShow(true); setSelectItem(data); }} >
+        <View style={s.root}>
+          <Image source={{uri: data.picture.medium}} style={s.userImage} />
+          <Text children={`${data.name.first + ' ' + data.name.last}`} />
+        </View>
+      </TouchableOpacity>
+      {/* Open detail modal - when clicking on a person, a modal should be opened displaying the following informations: full name, email, phone, cell phone, picture. */}
+      {show && (
+        <Modal closeModal={closeModal} show={show} itemData={selectItem} />
+      )}
+    </View>
   );
 };
 

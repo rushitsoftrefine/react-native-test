@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, View, TextInput, SectionList, SafeAreaView} from 'react-native';
 import PeopleListRow from './components/PeopleListRow';
 import data from './jsonfile/users.json';
+import './assets/style.css';
 
 const s = StyleSheet.create({
   root: {
@@ -38,12 +39,30 @@ const s = StyleSheet.create({
     color: '#fff',
     fontWeight: 'bold',
   },
+  rootItem: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    padding: 10,
+    paddingHorizontal: 10,
+    marginHorizontal: 10,
+    borderBottomColor: '#000',
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  },
+  userImage: {
+    width: 40,
+    height: 40,
+    marginLeft: 8,
+    marginRight: 16,
+    marginTop: 8,
+    marginBottom: 8,
+  },
 });
 
 export default function App() {
   const [search, setSearch] = useState('');
   const [people, setPeople] = useState([]);
-
+  const [selectItem, setSelectItem] = useState([]);
+  
   useEffect(() => {
     const fetchUsers = async () => {
       console.log(data);
