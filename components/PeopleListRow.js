@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Image, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import { Modal, View, Image, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 
 const s = StyleSheet.create({
   root: {
@@ -20,12 +20,18 @@ const s = StyleSheet.create({
     marginBottom: 8,
   },
 });
+ 
+const showAlert = () => {
+  Alert.alert(
+    'You need to...'
+  )
+}
 
 const PeopleListRow = data => {
   return (
-    <TouchableOpacity activeOpacity={1}>
+    <TouchableOpacity activeOpacity={0} onPress={showAlert} >
       <View style={s.root}>
-        <Image source={{uri: data.picture.medium}} style={s.userImage} />{/* Extend PeopleListRow to display user images. */}
+        <Image source={{ uri: data.picture.medium }} style={s.userImage} />{/* Extend PeopleListRow to display user images. */}
         <Text children={`${data.name.first + ' ' + data.name.last}`} />{/* Fix PeopleListRow to display names correctly. */}
       </View>
     </TouchableOpacity>
